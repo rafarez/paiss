@@ -140,7 +140,7 @@ class Oxford(Dataset):
 
         # save/show fig:
         plt.show()
-        input("Showing the top-{} results. Press Enter to continue...".format(topk))
+        #input("Showing the top-{} results. Press Enter to continue...".format(topk))
         if out_image_file is not None:
             if not os.path.exists(os.path.dirname(out_image_file)):
                 os.makedirs(os.path.dirname(out_image_file))
@@ -164,8 +164,8 @@ class Oxford(Dataset):
                 plt.close()
         return
 
-    def vis_triplets(self):# untested
-        max_plot = 6
+    def vis_triplets(self, nplots=1):# untested
+        max_plot = nplots 
         q_idxs = np.random.choice(range(54), max_plot)
         q_label = q_idxs//5+1
         p_idxs = np.random.choice(range(5), max_plot)
