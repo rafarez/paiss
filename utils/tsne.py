@@ -31,7 +31,7 @@ def do_tsne(feats, labs, cls, show_unlabeled=False, sec='', savefig=True):
     print('applying PCA...')
     pca    = PCA(n_components=n_pca)
     featsc = pca.fit_transform(feats)
-
+    
     print('applying t-SNE...')
     time_start = time.time()
     tsne = TSNE(n_components=n_dim, verbose=1, perplexity=40, n_iter=n_iter)
@@ -45,8 +45,9 @@ def do_tsne(feats, labs, cls, show_unlabeled=False, sec='', savefig=True):
     jet  = cm = plt.get_cmap('jet')
     cNorm     = colors.Normalize(vmin=0, vmax=values[-1])
     scalarMap = cmx.ScalarMappable(norm=cNorm, cmap=jet)
+    
     for c in values:
-        colorVal  = scalarMap.to_rgba(c)
+        colorVal  = np.array(scalarMap.to_rgba(c), ndmin=2)
         embed_idx = np.where(labsc == cls[c])[0]
         embed_x   = feats_tsne[embed_idx,0]
         embed_y   = feats_tsne[embed_idx,1]
@@ -57,7 +58,7 @@ def do_tsne(feats, labs, cls, show_unlabeled=False, sec='', savefig=True):
     plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
     fig.tight_layout()
     plt.show()
-    input('2-dimensional t-sne plot. Press enter to continue' % cls)
+    print('2-dimensional t-sne plot.')
 
     if savefig:
         out_fname = 'results/tsne_sect-{}.png'.format(sec)

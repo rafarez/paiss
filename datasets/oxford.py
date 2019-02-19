@@ -184,7 +184,7 @@ class Oxford(Dataset):
             axes[2].set_title('negative ex')
             axes[2].set_axis_off()
             plt.show(block=False)
-            input('Triplet for landmark %s. Press enter to continue' % self.__cls_names[q_label[i]-1])
+            print('Triplet for landmark %s. Press enter to continue' % self.__cls_names[q_label[i]-1])
             plt.close()
         return
 
