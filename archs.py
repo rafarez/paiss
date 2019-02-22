@@ -209,7 +209,7 @@ def resnet50_rmac(out_dim=2048, dropout_p=None, weights=None, **kwargs):
     return model
 
 def resnet18_rmac(out_dim=512, dropout_p=None, weights=None, **kwargs):
-    """Constructs a ResNet-50 model.
+    """Constructs a ResNet-18 model.
     """
     model = ResNet_RMAC(BasicBlock, [2, 2, 2, 2], dropout_p=dropout_p, fc_out=out_dim, **kwargs)
     if weights:
@@ -338,6 +338,7 @@ path_models = 'data/models'
 
 resnet50_cls = lambda : resnet50_rmac(out_dim=586, weights=osp.join(path_models, 'resnet50-cls-lm.pt'))
 resnet18_rank_DA = lambda : resnet18_rmac(out_dim=512, weights=osp.join(path_models, 'resnet18-rnk-lm-da.pt'))
+resnet18_rank    = lambda : resnet18_rmac(out_dim=512, weights=osp.join(path_models, 'resnet18-rnk-lm.pt'))
 resnet50_rank = lambda : resnet50_rmac(out_dim=2048, weights=osp.join(path_models, 'resnet50-rnk-lm.pt'))
 resnet50_rank_DA = lambda : resnet50_rmac(out_dim=2048, weights=osp.join(path_models, 'resnet50-rnk-lm-da.pt'))
 

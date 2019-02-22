@@ -12,7 +12,7 @@ np.random.seed(0)
 
 def do_tsne(feats, labs, cls, show_unlabeled=False, sec='', savefig=True):
     # hyperparameters:
-    n_pca  = 100
+    n_pca  = 256
     n_cls  = 12
     n_dim  = 2
     n_iter = 300
