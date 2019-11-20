@@ -4,7 +4,7 @@ NLE practical session for [PAISS 2018](https://project.inria.fr/paiss/)
 ## Installation
 
 This code requires Python 3 and Pytorch >=0.4. Follow the instructions below to install all the necessary dependencies.
-**Scikit-learn is not yet compatible with Python 3.8. We recommend downgrading to Python 3.7. **
+**Scikit-learn is not yet compatible with Python 3.8. We recommend downgrading to Python 3.7.**
 
 
 ### Linux / MacOS
@@ -47,7 +47,7 @@ Then, you will need to download 3 files:
 
 - oxbuild_images.tgz (1.8GB)
 - gt\_files\_170407.tgz (280KB)
-- features.tgz (311MB)
+- features.tgz (276MB)
 
 and store them in the appropriate paths.
 
