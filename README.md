@@ -13,8 +13,7 @@ Then run the following commands:
 
 ```
 source $HOME/miniconda3/bin/activate #Activates your conda environment
-conda install numpy matplotlib ipython scikit-learn jupyter
-conda install pytorch torchvision 
+conda install numpy matplotlib ipython scikit-learn jupyter 
 ```
 
 ### Windows
@@ -24,10 +23,8 @@ Install anaconda on windows (launch .exe file downloaded from the [conda website
 In the anaconda prompt, run:
 
 ```
-conda create -n pytorch
-activate pytorch
-conda install pytorch-cpu -c pytorch
-pip install torchvision --no-deps
+conda create -n TPretrieval
+activate TPretrieval
 conda install pillow
 conda install jupyter
 ```
