@@ -78,13 +78,13 @@ On Linux/MacOS, execute the following:
 
 ```
 cd $HOME/my_projects/paiss
-wget https://www.dropbox.com/s/gr404xlfr4021pw/features.tgz?dl=1 -O features.tgz
+wget https://www.dropbox.com/s/ilnow86hdvxle1k/features.tgz?dl=0 -O features.tgz
 tar -xzf features.tgz -C data
 ```
 
 On Windows, perform the following:
 
-- Download https://www.dropbox.com/s/gr404xlfr4021pw/features.tgz?dl=1
+- Download https://www.dropbox.com/s/ilnow86hdvxle1k/features.tgz?dl=0
 - Uncompress features.tgz and store in `data/`
 
 
