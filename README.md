@@ -79,7 +79,7 @@ On Linux/MacOS, execute the following:
 ```
 cd $HOME/my_projects/paiss
 wget https://www.dropbox.com/s/ilnow86hdvxle1k/features.tgz?dl=0 -O features.tgz
-tar -xzf features.tgz -C data
+tar -xf features.tgz -C data
 ```
 
 On Windows, perform the following:
@@ -95,4 +95,4 @@ source $HOME/miniconda3/bin/activate
 cd $HOME/my_projects/paiss
 jupyter notebook --ip='localhost' --port=8080 --NotebookApp.token=''
 ```
-On a browser, open localhost:8080/ and click Tutorial.ibnpy to open a new tab with the notebook.
+On a browser, open localhost:8080/ and click Tutorial.ipynb to open a new tab with the notebook.
