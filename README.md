@@ -3,7 +3,9 @@ NLE practical session for [PAISS 2018](https://project.inria.fr/paiss/)
 
 ## Installation
 
-This code requires Python 3 and Pytorch 0.4. Follow the instructions below to install all the necessary dependencies.
+This code requires Python 3 and Pytorch >=0.4. Follow the instructions below to install all the necessary dependencies.
+**Scikit-learn is not yet compatible with Python 3.8. We recommend downgrading to Python 3.7. **
+
 
 ### Linux / MacOS
 
@@ -13,7 +15,9 @@ Then run the following commands:
 
 ```
 source $HOME/miniconda3/bin/activate #Activates your conda environment
-conda install numpy matplotlib ipython scikit-learn jupyter 
+conda install numpy matplotlib ipython pandas pillow scikit-learn 
+conda install jupyter
+conda install pytorch torchvision cpuonly -c pytorch
 ```
 
 ### Windows
@@ -25,11 +29,12 @@ In the anaconda prompt, run:
 ```
 conda create -n TPretrieval
 activate TPretrieval
-conda install pillow
+conda install numpy matplotlib ipython pandas pillow scikit-learn
 conda install jupyter
+conda install pytorch torchvision cpuonly -c pytorch
 ```
 
-## Downloading the code, dataset, and models
+## Downloading the code, dataset, and precomputed features
 
 First, clone this repository:
 
@@ -75,13 +80,13 @@ On Linux/MacOS, execute the following:
 
 ```
 cd $HOME/my_projects/paiss
-wget https://www.dropbox.com/s/ilnow86hdvxle1k/features.tgz?dl=0 -O features.tgz
+wget https://www.dropbox.com/s/0icaays272u8w8q/features.tgz?dl=0 -O features.tgz
 tar -xf features.tgz -C data
 ```
 
 On Windows, perform the following:
 
-- Download https://www.dropbox.com/s/ilnow86hdvxle1k/features.tgz?dl=0
+- Download https://www.dropbox.com/s/0icaays272u8w8q/features.tgz?dl=0
 - Uncompress features.tgz and store in `data/`
 
 
