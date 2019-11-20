@@ -13,11 +13,9 @@ Then run the following commands:
 
 ```
 source $HOME/miniconda3/bin/activate #Activates your conda environment
-conda install numpy matplotlib ipython scikit-learn
-conda install pytorch torchvision faiss-cpu -c pytorch
+conda install numpy matplotlib ipython scikit-learn jupyter
+conda install pytorch torchvision 
 ```
-
-On MacOS there’s a bug for faiss related to libomp (https://github.com/facebookresearch/faiss/issues/485): run “brew install libomp”  (see https://brew.sh/ to install brew) to resolve this bug.
 
 ### Windows
 
@@ -31,9 +29,8 @@ activate pytorch
 conda install pytorch-cpu -c pytorch
 pip install torchvision --no-deps
 conda install pillow
+conda install jupyter
 ```
-
-**NOTE: _The FAISS package is not supported on Windows._ Participants with Windows machines must follow the product quantization exercise with their neighbours.**
 
 ## Downloading the code, dataset, and models
 
@@ -41,15 +38,14 @@ First, clone this repository:
 
 ```
 cd $HOME/my_projects
-git clone https://github.com/almazan/paiss.git
+git clone https://github.com/rafarez/paiss.git
 ```
 
-Then, you will need to download 4 files:
+Then, you will need to download 3 files:
 
 - oxbuild_images.tgz (1.8GB)
 - gt\_files\_170407.tgz (280KB)
-- features.tgz (579MB)
-- models.tgz (328MB)
+- features.tgz (311MB)
 
 and store them in the appropriate paths.
 
@@ -76,7 +72,7 @@ On Windows, perform the following:
 - create directory `data/oxford5k/lab/`
 - uncompress gt\_files\_170407.tgz and store in `data/oxford5k/lab/`
 
-**Features and models**
+**Features**
 
 On Linux/MacOS, execute the following:
 
@@ -84,61 +80,19 @@ On Linux/MacOS, execute the following:
 cd $HOME/my_projects/paiss
 wget https://www.dropbox.com/s/gr404xlfr4021pw/features.tgz?dl=1 -O features.tgz
 tar -xzf features.tgz -C data
-wget https://www.dropbox.com/s/mr4risqu7t9neel/models.tgz?dl=1 -O models.tgz
-tar -xzf models.tgz -C data
 ```
 
 On Windows, perform the following:
 
 - Download https://www.dropbox.com/s/gr404xlfr4021pw/features.tgz?dl=1
 - Uncompress features.tgz and store in `data/`
-- Download https://www.dropbox.com/s/mr4risqu7t9neel/models.tgz?dl=1
-- Uncompress models.tgz and store in `data/`
 
 
-## Demo
-
+## Notebook
 Execute:
-
 ```
 source $HOME/miniconda3/bin/activate
 cd $HOME/my_projects/paiss
-python demo.py --qidx 42 --topk 5
+jupyter notebook --ip='localhost' --port=8080 --NotebookApp.token=''
 ```
-
-and you should see the following ouput:
-
-![Output Demo](https://www.dropbox.com/s/pgboc4yrehvdsh7/out.png?raw=1)
-
-## Session
-
-To go through the practical session, we will use the `session.py` script. This scrip contains all the exercises and questions in the comments, and accepts the following arguments:
-
-- --sect [str]: Selects the section of the session to be run. You can select one section between 1a to 1i, and 2a to 2g.
-- --qidx [int]: Selects the query index that you want to use for the section. Each section has already some default indexes, so this argument is not strictly required.
-- --hide-tsne: This flag desactivate the tsne computation. In some sections you may want to experiment with different queries and not to visualize the TSNE projection again (since this may take between 30 seconds to several minutes depending on your CPU :S)
-
-
-We recommend running the session from iPython using the command `%run`, since this allows you to visualize the variables that were created during the execution (eg. you may want to check a given layer of the network). Here's an example:
-
-```
-source $HOME/miniconda3/bin/activate
-cd $HOME/my_projects/paiss
-ipython
-> %run session.py --sect 1i --hide-tsne --qidx 23
-> qfeats.shape
-> qfeats[q_idx]
-```
-
-Which will show the following results:
-
-![Output Terminal](https://www.dropbox.com/s/ak3jekahvojftgs/terminal.png?raw=1)
-
-![Output Session](https://www.dropbox.com/s/njerxf4j8vv5ji1/out2.png?raw=1)
-
-**Note:** If you don't have iPython installed, you can install it using the following conda command: `conda install ipython`
-
-**Note:** The code is automatically saving the plots generated in the folder `results/`
-
-**Link to the slides**: [PDF 30MB](https://www.dropbox.com/s/mjmh8al5wg6731j/18_07_PAISS_practical_session.pdf?dl=0)
-
+On a browser, open localhost:8080/ and click Tutorial.ibnpy to open a new tab with the notebook.

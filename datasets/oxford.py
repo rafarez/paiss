@@ -11,7 +11,7 @@ import functools
 import getpass
 import matplotlib.pyplot as plt
 
-if os.name != 'nt': import faiss
+#if os.name != 'nt': import faiss
 
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE" # OMP issue described here: https://github.com/dmlc/xgboost/issues/1715
 
@@ -201,14 +201,14 @@ class Oxford(Dataset):
         # Populate the database:
         self.pq.add(x_d)
 
-    def pq_train(self, x, m, n_bits):
-        d  = x.shape[1]
-
-        # Create the index
-        self.pq = faiss.IndexPQ(d, m, n_bits)
-
-        # Training
-        self.pq.train(x)
+#    def pq_train(self, x, m, n_bits):
+#        d  = x.shape[1]
+#
+#        # Create the index
+#        self.pq = faiss.IndexPQ(d, m, n_bits)
+#
+#        # Training
+#        self.pq.train(x)
 
     def get_ap(self, q_name, sorted_idx):
         rel   = self.__relevants[q_name]
